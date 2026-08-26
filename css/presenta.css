@@ -909,3 +909,19 @@ table > tbody > tr > td > p {
 body > div.header > img {
     padding: 10px 10px;
 }
+
+#patrones-comportamiento > ul li a {
+    font-size: 95%;
+}
+
+#patrones-comportamiento > ul li {
+    line-height: 1.3em;
+}
+
+#doom-consolas > ul li a {
+    font-size: 90%;
+}
+
+#doom-consolas > ul li {
+    line-height: 1.3em;
+}

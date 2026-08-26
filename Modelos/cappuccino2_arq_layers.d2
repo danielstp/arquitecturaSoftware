@@ -1,0 +1,42 @@
+direction: right
+Capa de Datos Externos: {
+    Sitio web FCYT: sagaa.fcyt.umss.edu.bo
+    Archivos de Horarios PDF
+}
+Capa de Extracción de Datos: {
+    Comando horario: horario.py
+    Extracción de Texto PDF: pdftotext, parsel
+    Motor de Patrones Regex: PATRON_DIA, PATRON_MATERIA_LINE
+}
+Capa de Lógica de Negocio: {
+    Modelos ORM de Django: Gestion, Actualizacion, Carrera, Materia, Grupo, Horario
+    Caché Redis
+    Base de Datos PostgreSQL: cappuccino2
+}
+Capa de Cliente: {
+    Navegadores Web
+    Consumidores de API
+}
+Capa de API: {
+    Django REST Framework: 9 Viewsets + Serializers
+    drf-spectacular: Esquema OpenAPI
+}
+Capa de Administración: {
+    Admin de Django: Tema Grappelli
+    django-allauth: Email + MFA
+}
+
+"Sitio web FCYT" -> "Comando horario": Scraping HTTP
+"Archivos de Horarios PDF" -> "Comando horario": Descarga
+"Comando horario" -> "Extracción de Texto PDF"
+"Extracción de Texto PDF" -> "Motor de Patrones Regex"
+"Motor de Patrones Regex" -> "Modelos ORM de Django": Datos Parseados
+"Navegadores Web" -> "Django REST Framework"
+"Consumidores de API" -> "Django REST Framework"
+"Navegadores Web" -> "Admin de Django"
+"Django REST Framework" -> "Modelos ORM de Django"
+"Admin de Django" -> "Modelos ORM de Django"
+"Modelos ORM de Django" -> "Caché Redis"
+"Modelos ORM de Django" -> "Base de Datos PostgreSQL"
+"Django REST Framework" -> "drf-spectacular"
+"Admin de Django" -> "django-allauth"
